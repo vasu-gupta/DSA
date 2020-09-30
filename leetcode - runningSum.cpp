@@ -9,10 +9,10 @@ vector<int> runningSum(vector<int>& nums) {
     int n = nums.size();
     vector<int> ans(n, 0);
 
-    for (int i = 0 ; i < n ; i++) {
-        for (int j = 0 ; j <= i ; j++) {
-            ans[i] += nums[j];
-        }
+    ans[0] = nums[0];
+
+    for (int i = 1 ; i < n ; i++) {
+        ans[i] = nums[i] + ans[i - 1];
     }
 
     return ans;
@@ -26,13 +26,13 @@ int main() {
 
     for (int i = 0 ; i < n ; i++) {
         cin >> nums[i];
-    } 
+    }
 
     vector<int> psa = runningSum(nums);
 
     for (int i = 0 ; i < n ; i++) {
         cout << psa[i] << " ";
-    } 
+    }
 
     return 0;
 }
