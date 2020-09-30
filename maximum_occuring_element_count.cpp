@@ -1,5 +1,5 @@
 // frequency of the element occuring maximum number of times
-// Time: O(n ^ 2)
+// Time: O(n)
 // Space: O(n)
 
 #include <bits/stdc++.h>
@@ -14,22 +14,18 @@ int main() {
 	for (int i = 0 ; i < n ; i++) {
 		cin >> arr[i];
 	}
-
+    
+    unordered_map<int, int> freq;
+    
 	int maxFreq = 0;
 
 	for (int i = 0 ; i < n ; i++) {
-		int freq = 0;
-		for (int j = 0 ; j < n ; j++) {
-			if (arr[i] == arr[j]) {
-				freq = freq + 1;
-			}
-		}
-
-		if (maxFreq < freq) {
-			maxFreq = freq
-		}
+        freq[arr[i]]++;
+        
+        maxFreq = max(maxFreq, freq[arr[i]]);
 	}
-
+    
+    
 	cout << maxFreq;
 
     return 0;
