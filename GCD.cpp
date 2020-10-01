@@ -23,4 +23,5 @@ int main ()
     cin >> b;
     
     cout << gcd(a,b);
+//same as stl __gcd(a,b)
 }
